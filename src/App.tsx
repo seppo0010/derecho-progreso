@@ -13,6 +13,10 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  MenuItem,
+  Select,
+  InputLabel,
+  FormControl,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import carrera from "./carrera.json";
@@ -26,8 +30,7 @@ type Orientacion =
   | "Derecho Privado"
   | "Derecho Público Administrativo"
   | "Derecho Tributario"
-  | "Derecho de Trabajo y de Seguridad Social"
-  | null;
+  | "Derecho de Trabajo y de Seguridad Social";
 
 type Ciclo = "CBC" | "CPC" | "CPO";
 interface Materia {
@@ -37,7 +40,7 @@ interface Materia {
   ciclo: Ciclo;
   min: null | number;
   max: null | number;
-  orientacion: Orientacion;
+  orientacion: Orientacion | null;
 }
 
 const materias: Materia[] = carrera as Materia[];
@@ -57,6 +60,10 @@ const materiasPorCiclo: Record<Ciclo, string[]> = {
     .filter(({ ciclo }) => ciclo === "CPO")
     .map(({ materia }) => materia),
 };
+const orientaciones = materias
+  .map(({ orientacion }) => orientacion)
+  .filter((o): o is Orientacion => o !== null)
+  .filter((value, index, self) => self.indexOf(value) === index);
 
 function App() {
   const [materiasSeleccionadas, setMateriasSeleccionadas] = useState<string[]>(
@@ -88,11 +95,12 @@ function App() {
   }, [materiasSeleccionadas]);
 
   const markCiclo = (ciclo: Ciclo) => {
+    if (materiasSeleccionadasPorCiclo === undefined) return;
+
     const m = [...materiasSeleccionadas];
     if (
-      materiasSeleccionadasPorCiclo !== undefined &&
       materiasSeleccionadasPorCiclo[ciclo].length ===
-        materiasPorCiclo[ciclo].length
+      materiasPorCiclo[ciclo].length
     ) {
       materiasPorCiclo[ciclo].forEach(
         (materia) => m.includes(materia) && m.splice(m.indexOf(materia), 1)
@@ -117,6 +125,8 @@ function App() {
     if (l > 1) return `${l} seleccionadas`;
     return "";
   };
+
+  const [orientacion, setOrientacion] = useState<Orientacion | "">("");
 
   return (
     <ThemeProvider theme={theme}>
@@ -145,27 +155,62 @@ function App() {
               </AccordionSummary>
               <AccordionDetails>
                 <List sx={{ width: "100%" }}>
-                  <ListItem disablePadding>
-                    <ListItemButton dense onClick={() => markCiclo(ciclo)}>
-                      <ListItemIcon>
-                        <Checkbox
-                          edge="start"
-                          onChange={() => markCiclo(ciclo)}
-                          checked={
-                            materiasSeleccionadasPorCiclo !== undefined
-                              ? materiasSeleccionadasPorCiclo[ciclo].length ===
-                                materiasPorCiclo[ciclo].length
-                              : false
+                  {ciclo === "CPO" && (
+                    <ListItem disablePadding>
+                      <FormControl fullWidth>
+                        <InputLabel id="orientacion-label">
+                          Orientación
+                        </InputLabel>
+                        <Select
+                          labelId="orientacion-label"
+                          label="Orientación"
+                          sx={{ width: "100%" }}
+                          value={orientacion}
+                          onChange={(event) =>
+                            setOrientacion(event.target.value as Orientacion)
                           }
-                          tabIndex={-1}
-                          disableRipple
-                        />
-                      </ListItemIcon>
-                      <ListItemText primary="Todas" />
-                    </ListItemButton>
-                  </ListItem>
-                  {materias
+                        >
+                          <MenuItem value={""}>
+                            Seleccionar orientación
+                          </MenuItem>
+                          {orientaciones.map((o) => (
+                            <MenuItem key={o} value={o}>
+                              {o}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </ListItem>
+                  )}
+                  {ciclo !== "CPO" && (
+                    <ListItem disablePadding>
+                      <ListItemButton dense onClick={() => markCiclo(ciclo)}>
+                        <ListItemIcon>
+                          <Checkbox
+                            edge="start"
+                            onChange={() => markCiclo(ciclo)}
+                            checked={
+                              materiasSeleccionadasPorCiclo !== undefined
+                                ? materiasSeleccionadasPorCiclo[ciclo]
+                                    .length === materiasPorCiclo[ciclo].length
+                                : false
+                            }
+                            tabIndex={-1}
+                            disableRipple
+                          />
+                        </ListItemIcon>
+                        <ListItemText primary="Todas" />
+                      </ListItemButton>
+                    </ListItem>
+                  )}
+                  {(ciclo !== 'CPO' || orientacion !== '') && materias
                     .filter((m) => m.ciclo === ciclo)
+                    .filter(
+                      (m) =>
+                        ciclo !== "CPO" ||
+                        m.orientacion === null ||
+                        m.orientacion === orientacion
+                    )
                     .map((materia) => {
                       return (
                         <ListItem
