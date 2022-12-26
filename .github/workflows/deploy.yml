@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches: [main]
-permissions: 
+permissions:
   contents: write
 jobs:
   build-and-deploy:
