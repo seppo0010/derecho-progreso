@@ -1,24 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import carrera from './carrera.json';
+
+type Orientacion = "Derecho Empresarial" |
+  "Derecho Internacional Público" |
+  "Derecho Notarial, Registral e Inmobiliario" |
+  "Derecho Penal" |
+  "Derecho Privado" |
+  "Derecho Público Administrativo" |
+  "Derecho Tributario" |
+  "Derecho de Trabajo y de Seguridad Social" |
+  null;
+
+interface Materia {
+  materia: string;
+  horas_semana: number;
+  horas_totales: number;
+  ciclo: 'CBC' | 'CPC' | 'CPO';
+  min: null | number;
+  max: null | number;
+  orientacion: Orientacion;
+}
+
+const materias: Materia[] = carrera as Materia[];
 
 function App() {
+  const sections = materias.map(({ ciclo }) => ciclo).filter((value, index, self) => self.indexOf(value) === index);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      Hello world
+      <ul>
+        {sections.map((s) => <li key={s}>{s}</li>)}
+      </ul>
     </div>
   );
 }

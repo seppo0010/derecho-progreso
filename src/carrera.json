@@ -1,0 +1,785 @@
+[
+  {
+    "materia": "Introducción al Conocimiento de la Sociedad y el Estado",
+    "horas_semana": 4,
+    "horas_totales": 64,
+    "ciclo": "CBC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Introducción al Pensamiento Científico",
+    "horas_semana": 4,
+    "horas_totales": 64,
+    "ciclo": "CBC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Sociología",
+    "horas_semana": 4,
+    "horas_totales": 64,
+    "ciclo": "CBC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Ciencia Política",
+    "horas_semana": 4,
+    "horas_totales": 64,
+    "ciclo": "CBC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Principios Generales del Derecho Latinoamericano",
+    "horas_semana": 4,
+    "horas_totales": 64,
+    "ciclo": "CBC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Principios de Derechos Humanos y Derecho Constitucional",
+    "horas_semana": 4,
+    "horas_totales": 64,
+    "ciclo": "CBC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Teoría General del Derecho",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Teoría del Estado",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Derechos Humanos y Garantías",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Derecho Constitucional",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Derecho Civil (Parte General)",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Obligaciones Civiles y Comerciales",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Derecho Comercial",
+    "horas_semana": 4.5,
+    "horas_totales": 81,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Contratos Civiles y Comerciales",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Derecho Procesal Civil y Comercial",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Derecho Penal y de Procesal Penal",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Derechos Reales",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Derecho Administrativo",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Derecho del Trabajo y de la Seguridad Social",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Elementos de Análisis Económico y Financiero",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPC",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Derecho Internacional Público",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Sociedades Civiles y Comerciales",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Derecho de Familia y Sucesiones",
+    "horas_semana": 4.5,
+    "horas_totales": 81,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Derecho Internacional Privado",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Finanzas Públicas y Derecho Tributario",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Departamento de Ciencias Sociales",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 4,
+    "orientacion": null
+  },
+  {
+    "materia": "Departamento de Filosofía del Derecho",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 4,
+    "orientacion": null
+  },
+  {
+    "materia": "Derecho de la Integración",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Departamento de Práctica profesional (19 puntos)",
+    "horas_semana": 6,
+    "horas_totales": 256,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Lecto-comprensión en lengua extranjera",
+    "horas_semana": 9,
+    "horas_totales": 162,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Contratos Administrativos",
+    "horas_semana": 3,
+    "horas_totales": 40.5,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "Procedimiento y Recursos Administrativos",
+    "horas_semana": 3,
+    "horas_totales": 27,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "Derecho Procesal Administrativo",
+    "horas_semana": 3,
+    "horas_totales": 27,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "Responsabilidad del Estado",
+    "horas_semana": 3,
+    "horas_totales": 27,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "Potestad Reglamentaria y Regulación",
+    "horas_semana": 3,
+    "horas_totales": 27,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "Organización Administrativa o Las Bases del Derecho Administrativo",
+    "horas_semana": 3,
+    "horas_totales": 13.5,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "8 puntos en Derecho del Trabajo y Seguridad Social, Derecho Privado, Derecho Penal y Criminología o Derecho Económico Empresarial",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "8 puntos en Derecho Público",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "Derecho constitucional profundizado o Derecho constitucional profundizado y procesal constitucional",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Público Administrativo"
+  },
+  {
+    "materia": "Derecho constitucional profundizado o Derecho constitucional profundizado y procesal constitucional",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Internacional Público"
+  },
+  {
+    "materia": "Las Fuentes del Derecho Internacional",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Internacional Público"
+  },
+  {
+    "materia": "Sujetos y Jurisdicciones",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Internacional Público"
+  },
+  {
+    "materia": "Derecho Internacional de los Derechos Humanos",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Internacional Público"
+  },
+  {
+    "materia": "8 puntos en Derecho Público",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Internacional Público"
+  },
+  {
+    "materia": "8 puntos en Derecho del Trabajo y Seguridad Social, Derecho Privado, Derecho Penal y Criminología o Derecho Económico Empresarial",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Internacional Público"
+  },
+  {
+    "materia": "Derecho constitucional profundizado o Derecho constitucional profundizado y procesal constitucional",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Internacional Público"
+  },
+  {
+    "materia": "Bases constitucionales del derecho privado",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Privado"
+  },
+  {
+    "materia": "Derecho Romano",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Privado"
+  },
+  {
+    "materia": "Derecho del Consumidor",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Privado"
+  },
+  {
+    "materia": "Derecho de Daños",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Privado"
+  },
+  {
+    "materia": "8 puntos en Derecho Privado o Derecho Notarial",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Privado"
+  },
+  {
+    "materia": "8 puntos en Derecho Público, Derecho Económico y Empresarial, Derecho Penal y Criminología o Derecho del Trabajo y de Seguridad Social",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Privado"
+  },
+  {
+    "materia": "Bases constitucionales del derecho privado",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Notarial, Registral e Inmobiliario"
+  },
+  {
+    "materia": "Derecho Notarial",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Notarial, Registral e Inmobiliario"
+  },
+  {
+    "materia": "Derecho Registral",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Notarial, Registral e Inmobiliario"
+  },
+  {
+    "materia": "Derecho Inmobiliario",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Notarial, Registral e Inmobiliario"
+  },
+  {
+    "materia": "8 puntos en Derecho Notarial, Registral e Inmobiliario",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Notarial, Registral e Inmobiliario"
+  },
+  {
+    "materia": "8 puntos en Derecho Público, Derecho del Trabajo y de la Seguridad Social, Derecho Económico y Empresarial, Derecho Penal y Criminología",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Notarial, Registral e Inmobiliario"
+  },
+  {
+    "materia": "Derecho constitucional económico",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Empresarial"
+  },
+  {
+    "materia": "Institutos de Derecho de la Navegación por Agua y por Aire",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Empresarial"
+  },
+  {
+    "materia": "Derecho de los Recursos Naturales y Protección del Medio Ambiente",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Empresarial"
+  },
+  {
+    "materia": "Contratación Mercantil o Títulos de Crédito, Mercado Financiero y de Capitales o Propiedad Industrial, Mercado y Derecho de la Competencia",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Empresarial"
+  },
+  {
+    "materia": "8 puntos en Derecho Empresarial o Derecho Tributario",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Empresarial"
+  },
+  {
+    "materia": "8 puntos en Derecho Público, Derecho Privado, Derecho Penal y Criminología o Derecho del Trabajo y de la Seguridad Social",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Empresarial"
+  },
+  {
+    "materia": "Derecho constitucional económico",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Tributario"
+  },
+  {
+    "materia": "Teoría general del Derecho Tributario",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Tributario"
+  },
+  {
+    "materia": "Régimen tributario argentino",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Tributario"
+  },
+  {
+    "materia": "Procedimientos y procesos tributarios",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Tributario"
+  },
+  {
+    "materia": "8 puntos en Derecho Tributario",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Tributario"
+  },
+  {
+    "materia": "8 puntos en Derecho Público, Derecho Privado, Derecho Penal y Criminología, Derecho del Trabajo y de la Seguridad Social",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Tributario"
+  },
+  {
+    "materia": "Garantías constitucionales del derecho penal sustantivo y del proceso penal",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Penal"
+  },
+  {
+    "materia": "Teoría del delito y sistema de la pena",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Penal"
+  },
+  {
+    "materia": "Régimen del proceso penal",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Penal"
+  },
+  {
+    "materia": "Criminología o Parte especial del derecho penal",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Penal"
+  },
+  {
+    "materia": "Introducción a las teorías criminológicas o Introducción a la parte especial del derecho penal",
+    "horas_semana": 3,
+    "horas_totales": 27,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho Penal"
+  },
+  {
+    "materia": "6 puntos en Derecho Penal",
+    "horas_semana": 3,
+    "horas_totales": 81,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 6,
+    "orientacion": "Derecho Penal"
+  },
+  {
+    "materia": "8 puntos en Derecho Público, Derecho Privado, Derecho del Trabajo y de Seguridad Social o Derecho Económico Empresarial",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho Penal"
+  },
+  {
+    "materia": "Constitucionalismo social",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho de Trabajo y de Seguridad Social"
+  },
+  {
+    "materia": "Teoría General del Derecho del Trabajo",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho de Trabajo y de Seguridad Social"
+  },
+  {
+    "materia": "Derecho de las Relaciones Individuales de Trabajo",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho de Trabajo y de Seguridad Social"
+  },
+  {
+    "materia": "Derecho de las Relaciones Colectivas de Trabajo",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho de Trabajo y de Seguridad Social"
+  },
+  {
+    "materia": "Derecho de la Seguridad Social",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": "Derecho de Trabajo y de Seguridad Social"
+  },
+  {
+    "materia": "4 puntos en Derecho de Trabajo y de Seguridad Social",
+    "horas_semana": 3,
+    "horas_totales": 54,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 4,
+    "orientacion": "Derecho de Trabajo y de Seguridad Social"
+  },
+  {
+    "materia": "8 puntos en Derecho Público, Derecho Privado, Derecho Penal y Criminología o Derecho Económico Empresarial",
+    "horas_semana": 3,
+    "horas_totales": 108,
+    "ciclo": "CPO",
+    "min": 1,
+    "max": 8,
+    "orientacion": "Derecho de Trabajo y de Seguridad Social"
+  },
+  {
+    "materia": "Procedimientos de Prevención y Resolución de la Insolvencia",
+    "horas_semana": 3,
+    "horas_totales": 27,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "Métodos Alternativos de Resolución de Conflictos",
+    "horas_semana": 3,
+    "horas_totales": 27,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  },
+  {
+    "materia": "2 Puntos en el Departamento de Derecho Procesal",
+    "horas_semana": 3,
+    "horas_totales": 27,
+    "ciclo": "CPO",
+    "min": null,
+    "max": null,
+    "orientacion": null
+  }
+]
