@@ -1,37 +1,206 @@
-import React from 'react';
-import carrera from './carrera.json';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  Container,
+  CssBaseline,
+  Box,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Typography,
+  Checkbox,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import carrera from "./carrera.json";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-type Orientacion = "Derecho Empresarial" |
-  "Derecho Internacional Público" |
-  "Derecho Notarial, Registral e Inmobiliario" |
-  "Derecho Penal" |
-  "Derecho Privado" |
-  "Derecho Público Administrativo" |
-  "Derecho Tributario" |
-  "Derecho de Trabajo y de Seguridad Social" |
-  null;
+type Orientacion =
+  | "Derecho Empresarial"
+  | "Derecho Internacional Público"
+  | "Derecho Notarial, Registral e Inmobiliario"
+  | "Derecho Penal"
+  | "Derecho Privado"
+  | "Derecho Público Administrativo"
+  | "Derecho Tributario"
+  | "Derecho de Trabajo y de Seguridad Social"
+  | null;
 
+type Ciclo = "CBC" | "CPC" | "CPO";
 interface Materia {
   materia: string;
   horas_semana: number;
   horas_totales: number;
-  ciclo: 'CBC' | 'CPC' | 'CPO';
+  ciclo: Ciclo;
   min: null | number;
   max: null | number;
   orientacion: Orientacion;
 }
 
 const materias: Materia[] = carrera as Materia[];
+const theme = createTheme();
+
+const ciclos: Ciclo[] = materias
+  .map(({ ciclo }) => ciclo)
+  .filter((value, index, self) => self.indexOf(value) === index);
+const materiasPorCiclo: Record<Ciclo, string[]> = {
+  CBC: materias
+    .filter(({ ciclo }) => ciclo === "CBC")
+    .map(({ materia }) => materia),
+  CPC: materias
+    .filter(({ ciclo }) => ciclo === "CPC")
+    .map(({ materia }) => materia),
+  CPO: materias
+    .filter(({ ciclo }) => ciclo === "CPO")
+    .map(({ materia }) => materia),
+};
 
 function App() {
-  const sections = materias.map(({ ciclo }) => ciclo).filter((value, index, self) => self.indexOf(value) === index);
+  const [materiasSeleccionadas, setMateriasSeleccionadas] = useState<string[]>(
+    []
+  );
+  const handleToggle = (value: string) => {
+    const currentIndex = materiasSeleccionadas.indexOf(value);
+    const newChecked = [...materiasSeleccionadas];
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+    setMateriasSeleccionadas(newChecked);
+  };
+
+  const [materiasSeleccionadasPorCiclo, setMateriasSeleccionadasPorCiclo] =
+    useState<Record<Ciclo, string[]>>();
+  useEffect(() => {
+    const n = Object.fromEntries(
+      ciclos.map((ciclo: Ciclo) => [
+        ciclo,
+        materiasSeleccionadas.filter(
+          (m) => materias.find(({ materia }) => materia === m)?.ciclo === ciclo
+        ),
+      ])
+    ) as Record<Ciclo, string[]>;
+    setMateriasSeleccionadasPorCiclo(n);
+  }, [materiasSeleccionadas]);
+
+  const markCiclo = (ciclo: Ciclo) => {
+    const m = [...materiasSeleccionadas];
+    if (
+      materiasSeleccionadasPorCiclo !== undefined &&
+      materiasSeleccionadasPorCiclo[ciclo].length ===
+        materiasPorCiclo[ciclo].length
+    ) {
+      materiasPorCiclo[ciclo].forEach(
+        (materia) => m.includes(materia) && m.splice(m.indexOf(materia), 1)
+      );
+    } else {
+      materiasPorCiclo[ciclo].forEach(
+        (materia) => !m.includes(materia) && m.push(materia)
+      );
+    }
+    setMateriasSeleccionadas(m);
+  };
+
+  const displayMateriasSeleccionadas = (
+    materiasSeleccionadasPorCiclo: undefined | Record<Ciclo, string[]>,
+    ciclo: Ciclo
+  ): string => {
+    if (materiasSeleccionadasPorCiclo === undefined) return "";
+    const l = materiasSeleccionadasPorCiclo[ciclo].length;
+    if (l === materiasPorCiclo[ciclo].length) return "Todas seleccionadas";
+    if (l === 0) return "Ninguna seleccionada";
+    if (l === 1) return "1 seleccionada";
+    if (l > 1) return `${l} seleccionadas`;
+    return "";
+  };
+
   return (
-    <div>
-      Hello world
-      <ul>
-        {sections.map((s) => <li key={s}>{s}</li>)}
-      </ul>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="lg">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {ciclos.map((ciclo) => (
+            <Accordion key={ciclo} sx={{ width: "100%" }}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                  {ciclo}
+                </Typography>
+                <Typography sx={{ color: "text.secondary" }}>
+                  {displayMateriasSeleccionadas(
+                    materiasSeleccionadasPorCiclo,
+                    ciclo
+                  )}
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <List sx={{ width: "100%" }}>
+                  <ListItem disablePadding>
+                    <ListItemButton dense onClick={() => markCiclo(ciclo)}>
+                      <ListItemIcon>
+                        <Checkbox
+                          edge="start"
+                          onChange={() => markCiclo(ciclo)}
+                          checked={
+                            materiasSeleccionadasPorCiclo !== undefined
+                              ? materiasSeleccionadasPorCiclo[ciclo].length ===
+                                materiasPorCiclo[ciclo].length
+                              : false
+                          }
+                          tabIndex={-1}
+                          disableRipple
+                        />
+                      </ListItemIcon>
+                      <ListItemText primary="Todas" />
+                    </ListItemButton>
+                  </ListItem>
+                  {materias
+                    .filter((m) => m.ciclo === ciclo)
+                    .map((materia) => {
+                      return (
+                        <ListItem
+                          key={`${materia.orientacion ?? ""}-${
+                            materia.materia
+                          }`}
+                          disablePadding
+                        >
+                          <ListItemButton
+                            dense
+                            onClick={() => handleToggle(materia.materia)}
+                          >
+                            <ListItemIcon>
+                              <Checkbox
+                                edge="start"
+                                onChange={() => handleToggle(materia.materia)}
+                                checked={materiasSeleccionadas.includes(
+                                  materia.materia
+                                )}
+                                tabIndex={-1}
+                                disableRipple
+                              />
+                            </ListItemIcon>
+                            <ListItemText primary={materia.materia} />
+                          </ListItemButton>
+                        </ListItem>
+                      );
+                    })}
+                </List>
+              </AccordionDetails>
+            </Accordion>
+          ))}
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
 
