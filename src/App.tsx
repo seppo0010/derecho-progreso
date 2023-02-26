@@ -51,16 +51,10 @@ const theme = createTheme();
 const ciclos: Ciclo[] = materias
   .map(({ ciclo }) => ciclo)
   .filter((value, index, self) => self.indexOf(value) === index);
-const materiasPorCiclo: Record<Ciclo, string[]> = {
-  CBC: materias
-    .filter(({ ciclo }) => ciclo === "CBC")
-    .map(({ materia }) => materia),
-  CPC: materias
-    .filter(({ ciclo }) => ciclo === "CPC")
-    .map(({ materia }) => materia),
-  CPO: materias
-    .filter(({ ciclo }) => ciclo === "CPO")
-    .map(({ materia }) => materia),
+const materiasPorCiclo: Record<Ciclo, Materia[]> = {
+  CBC: materias.filter(({ ciclo }) => ciclo === "CBC"),
+  CPC: materias.filter(({ ciclo }) => ciclo === "CPC"),
+  CPO: materias.filter(({ ciclo }) => ciclo === "CPO"),
 };
 const orientaciones = materias
   .map(({ orientacion }) => orientacion)
@@ -68,18 +62,32 @@ const orientaciones = materias
   .filter((value, index, self) => self.indexOf(value) === index);
 
 function App() {
-  const [materiasSeleccionadas, setMateriasSeleccionadas] = useState<string[]>(
-    []
+  const [puntosMaterias, setPuntosMaterias] = useState<Record<string, number>>(
+    {}
   );
-  const handleToggle = (value: string) => {
-    const currentIndex = materiasSeleccionadas.indexOf(value);
-    const newChecked = [...materiasSeleccionadas];
-    if (currentIndex === -1) {
-      newChecked.push(value);
+  const handleToggle = (materia: Materia) => {
+    if (puntosMaterias[materia.materia]) {
+      // eslint-disable-next-line no-unused-vars
+      const { [materia.materia]: _, ...newPuntosMaterias } = puntosMaterias;
+      setPuntosMaterias(newPuntosMaterias);
     } else {
-      newChecked.splice(currentIndex, 1);
+      setPuntosMaterias({
+        ...puntosMaterias,
+        [materia.materia]: 1,
+      });
     }
-    setMateriasSeleccionadas(newChecked);
+  };
+  const handleChange = (materia: Materia, puntos: number) => {
+    if (puntos === 0) {
+      // eslint-disable-next-line no-unused-vars
+      const { [materia.materia]: _, ...newPuntosMaterias } = puntosMaterias;
+      setPuntosMaterias(newPuntosMaterias);
+    } else {
+      setPuntosMaterias({
+        ...puntosMaterias,
+        [materia.materia]: puntos,
+      });
+    }
   };
 
   const [
@@ -90,31 +98,33 @@ function App() {
     const n = Object.fromEntries(
       ciclos.map((ciclo: Ciclo) => [
         ciclo,
-        materiasSeleccionadas.filter(
+        Object.keys(puntosMaterias).filter(
           (m) => materias.find(({ materia }) => materia === m)?.ciclo === ciclo
         ),
       ])
     ) as Record<Ciclo, string[]>;
     setMateriasSeleccionadasPorCiclo(n);
-  }, [materiasSeleccionadas]);
+  }, [puntosMaterias]);
 
   const markCiclo = (ciclo: Ciclo) => {
     if (materiasSeleccionadasPorCiclo === undefined) return;
 
-    const m = [...materiasSeleccionadas];
+    const newPuntosMaterias = { ...puntosMaterias };
     if (
       materiasSeleccionadasPorCiclo[ciclo].length ===
       materiasPorCiclo[ciclo].length
     ) {
       materiasPorCiclo[ciclo].forEach(
-        (materia) => m.includes(materia) && m.splice(m.indexOf(materia), 1)
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+        (materia) => delete newPuntosMaterias[materia.materia]
       );
     } else {
       materiasPorCiclo[ciclo].forEach(
-        (materia) => !m.includes(materia) && m.push(materia)
+        (materia) =>
+          (newPuntosMaterias[materia.materia] = materia.horas_totales)
       );
     }
-    setMateriasSeleccionadas(m);
+    setPuntosMaterias(newPuntosMaterias);
   };
 
   const displayMateriasSeleccionadas = (
@@ -141,14 +151,21 @@ function App() {
     );
     setProgress(
       materiasOrientacion
-        .filter((m) => materiasSeleccionadas.includes(m.materia))
-        .reduce((partialSum, m) => partialSum + m.horas_totales, 0) /
+        .filter((m) => puntosMaterias[m.materia])
+        .reduce(
+          (partialSum, m) =>
+            partialSum +
+            (m.max === null
+              ? m.horas_totales
+              : (m.horas_totales * puntosMaterias[m.materia]) / m.max),
+          0
+        ) /
         materiasOrientacion.reduce(
           (partialSum, m) => partialSum + m.horas_totales,
           0
         )
     );
-  }, [materiasSeleccionadas, orientacion]);
+  }, [puntosMaterias, orientacion]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -246,23 +263,54 @@ function App() {
                             }`}
                             disablePadding
                           >
-                            <ListItemButton
-                              dense
-                              onClick={() => handleToggle(materia.materia)}
-                            >
-                              <ListItemIcon>
-                                <Checkbox
-                                  edge="start"
-                                  onChange={() => handleToggle(materia.materia)}
-                                  checked={materiasSeleccionadas.includes(
-                                    materia.materia
-                                  )}
+                            {(materia.min === null || materia.max === null) && (
+                              <ListItemButton
+                                dense
+                                onClick={() => handleToggle(materia)}
+                              >
+                                <ListItemIcon>
+                                  <Checkbox
+                                    edge="start"
+                                    onChange={() => handleToggle(materia)}
+                                    checked={!!puntosMaterias[materia.materia]}
+                                    tabIndex={-1}
+                                  />
+                                </ListItemIcon>
+                                <ListItemText primary={materia.materia} />
+                              </ListItemButton>
+                            )}
+                            {materia.min !== null && materia.max !== null && (
+                              <ListItemButton
+                                dense
+                                onClick={() =>
+                                  document
+                                    .getElementById(
+                                      `materia-${materia.materia}`
+                                    )
+                                    ?.focus()
+                                }
+                              >
+                                <Select
+                                  id={`materia-${materia.materia}`}
+                                  onChange={(ev) =>
+                                    handleChange(
+                                      materia,
+                                      ev.target.value as number
+                                    )
+                                  }
+                                  value={puntosMaterias[materia.materia]}
                                   tabIndex={-1}
-                                  disableRipple
-                                />
-                              </ListItemIcon>
-                              <ListItemText primary={materia.materia} />
-                            </ListItemButton>
+                                >
+                                  {Array.from(
+                                    new Array(materia.max + 1),
+                                    (_, i) => i
+                                  ).map((n) => (
+                                    <MenuItem value={n}>{n}</MenuItem>
+                                  ))}
+                                </Select>
+                                <ListItemText primary={materia.materia} />
+                              </ListItemButton>
+                            )}
                           </ListItem>
                         );
                       })}
