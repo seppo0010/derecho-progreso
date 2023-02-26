@@ -298,7 +298,7 @@ function App() {
                                       ev.target.value as number
                                     )
                                   }
-                                  value={puntosMaterias[materia.materia]}
+                                  value={puntosMaterias[materia.materia] ?? 0}
                                   tabIndex={-1}
                                 >
                                   {Array.from(
