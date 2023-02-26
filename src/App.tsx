@@ -17,7 +17,8 @@ import {
   Select,
   InputLabel,
   FormControl,
-  Snackbar,
+  AppBar,
+  Toolbar,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import carrera from "./carrera.json";
@@ -81,8 +82,10 @@ function App() {
     setMateriasSeleccionadas(newChecked);
   };
 
-  const [materiasSeleccionadasPorCiclo, setMateriasSeleccionadasPorCiclo] =
-    useState<Record<Ciclo, string[]>>();
+  const [
+    materiasSeleccionadasPorCiclo,
+    setMateriasSeleccionadasPorCiclo,
+  ] = useState<Record<Ciclo, string[]>>();
   useEffect(() => {
     const n = Object.fromEntries(
       ciclos.map((ciclo: Ciclo) => [
@@ -129,24 +132,13 @@ function App() {
 
   const [orientacion, setOrientacion] = useState<Orientacion | "">("");
 
-  const [openProgress, setOpenProgress] = useState(false);
   const [progress, setProgress] = useState(0.0);
-  const handleCloseProgress = (
-    event: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpenProgress(false);
-  };
 
   useEffect(() => {
     const o = orientacion === "" ? orientaciones[0] : orientacion;
     const materiasOrientacion = materias.filter(
       (m) => m.orientacion === null || m.orientacion === o
     );
-    setOpenProgress(true);
     setProgress(
       materiasOrientacion
         .filter((m) => materiasSeleccionadas.includes(m.materia))
@@ -160,13 +152,17 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <AppBar position="fixed">
+        <Toolbar>Progreso: {Math.round(progress * 100)}%</Toolbar>
+      </AppBar>
       <Container component="main" maxWidth="lg">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 6,
+            marginTop: 10,
             display: "flex",
             flexDirection: "column",
+            flexGrow: 1,
             alignItems: "center",
           }}
         >
@@ -275,12 +271,6 @@ function App() {
             </Accordion>
           ))}
         </Box>
-        <Snackbar
-          open={openProgress}
-          autoHideDuration={6000}
-          onClose={handleCloseProgress}
-          message={`¡${Math.round(progress * 100)}% completado!`}
-        />
       </Container>
     </ThemeProvider>
   );
